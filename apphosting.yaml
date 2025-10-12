@@ -1,0 +1,7 @@
+# apphosting.yaml (minimal pour site statique)
+# Indique à App Hosting de déployer "tout le répertoire" tel quel.
+outputFiles:
+  serverApp:
+    include: [ . ]
+# (Optionnel) Variables déjà injectées par Firebase, ne rien toucher ici.
+# runConfig/env/sécrets = non nécessaires pour un site purement statique.
