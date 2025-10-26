@@ -1,1 +1,16 @@
 
+:root{
+  --bg:#0B0B0F; --card:#111219; --border:#23242A; --text:#EDEDED;
+  --grad-start:#FF6A00; --grad-end:#FF3CAC;
+}
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0; background:var(--bg); color:var(--text); font:16px/1.5 Inter,system-ui,sans-serif}
+.site-header{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; border-bottom:1px solid var(--border)}
+#nav-logo-slot{font-weight:800; background:linear-gradient(90deg,var(--grad-start),var(--grad-end));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none}
+.nav a{color:#cfd2d8; text-decoration:none; margin-left:16px}
+.nav a:hover{text-decoration:underline}
+.container{max-width:880px; margin:48px auto; padding:0 24px; background:var(--card); border:1px solid var(--border); border-radius:16px}
+.container h1{margin:0; padding:24px}
+.container p{padding:0 24px 24px}
+
