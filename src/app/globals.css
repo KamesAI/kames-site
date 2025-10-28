@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:#000000;
+  --text:#ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Roboto, system-ui, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg,#FFB300 0%,#FF6D00 50%,#F538A0 100%);
+  -webkit-background-clip:text;
+  color:transparent;
+}

@@ -1,0 +1,7 @@
+runConfig:
+  runtime: nodejs20
+  entrypoint: npm run start
+
+buildConfig:
+  command: npm run build
+  outputDir: out
