@@ -5,7 +5,7 @@ import { achievements } from '@/lib/achievements-data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
 
-export function Achievements() {
+export function AchievementsSection() {
   return (
     <section id="achievements" className="bg-card section-padding">
       <div className="container mx-auto">
