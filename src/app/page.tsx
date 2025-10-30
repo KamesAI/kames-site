@@ -10,17 +10,17 @@ import { ContactSection } from '@/components/sections/contact'
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <hero />
 
-      <Services />
+      <nos-services />
 
-      <AchievementsSection />
+      <achievements />
 
-      <AboutSection />
+      <notre-histoire />
 
-      <DocumentationSection />
+      <documentation-complete />
 
-      <ContactSection />
+      <contact />
     </>
   )
 }
