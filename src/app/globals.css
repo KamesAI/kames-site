@@ -1,16 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --bg:#000000;
-  --text:#ffffff;
+  --k-black: #000000;
+  --k-gray: #151515;
+  --k-white: #FFFFFF;
+  --k-grad-start: #FFB300;   /* orange/jaune */
+  --k-grad-mid:   #FF6D00;   /* orange vif   */
+  --k-grad-end:   #F538A0;   /* magenta/rose */
+  --k-accent:     #FF6D00;   /* liens actifs / hover */
+  --header-h: 72px;          /* hauteur du header */
 }
 
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: Roboto, system-ui, sans-serif;
+/* Global */
+html, body {
+  background: var(--k-black);
+  color: var(--k-white);
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Marges des sections */
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+/* Couleurs */
+.k-subtle {
+  color: var(--k-gray);
 }
 
 .gradient-text,
@@ -48,4 +62,66 @@ body {
 
 .animate-text-disappear {
   animation: text-disappear 0.7s ease forwards;
+.k-gradient-text {
+  background: linear-gradient(90deg, var(--k-grad-start), var(--k-grad-mid), var(--k-grad-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
+
+/* Structure */
+.k-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+/* Hero */
+.k-hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0 24px;
+}
+.k-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.55) 100%);
+  pointer-events: none;
+}
+
+/* Cartes services */
+.k-card {
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 1.25rem;
+  padding: 28px;
+  background: rgba(255,255,255,0.02);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset;
+}
+
+/* Grille services */
+.k-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1100px) {
+  .k-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Navigation */
+.nav-link {
+  color: #ddd;
+  transition: color 0.3s ease;
+}
+.nav-link.active {
+  color: var(--k-accent);
+}
+
+/* Garde ton rond/flèche : pas de modification ici */
