@@ -31,6 +31,29 @@ export default function Header() {
   }, []);
 
   return (
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="flex items-center gap-6">
+          <Logo />
+          <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 md:flex">
+            <Link href="/nos-services" className="transition-colors hover:text-white">
+              Services
+            </Link>
+            <Link href="/achievements" className="transition-colors hover:text-white">
+              Réalisations
+            </Link>
+            <Link href="/notre-histoire" className="transition-colors hover:text-white">
+              À propos
+            </Link>
+            <Link href="#contact" className="transition-colors hover:text-white">
+              Contact
+            </Link>
+          </nav>
+        </div>
+        <Button asChild variant="gradient" size="lg" className="shadow-[0_0_30px_rgba(245,56,160,0.35)]">
+          <Link href="#contact">Contactez-nous</Link>
+        </Button>
+      </div>
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur border-b border-white/10 h-[72px]">
       <nav className="max-w-[1200px] mx-auto h-full px-4 flex items-center justify-between">
         <Link href="/" className="font-bold text-white tracking-wide">
