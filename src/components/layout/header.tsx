@@ -2,21 +2,40 @@ import Link from 'next/link'
 import Logo from '@/components/logo'
 import { Button } from '@/components/ui/button'
 
+const navigation = [
+  { href: '#home', label: 'Accueil' },
+  { href: '#services', label: 'Services' },
+  { href: '#achievements', label: 'Réalisations' },
+  { href: '#about', label: 'À propos' },
+  { href: '#documentation', label: 'Documentation' },
+]
+
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-black/80 backdrop-blur-xl sticky top-0 z-50">
-      <div className="flex items-center gap-4">
-        <Logo />
-        <nav className="hidden md:flex gap-6 text-sm text-white/80">
-          <Link href="/nos-services" className="hover:text-white">Services</Link>
-          <Link href="/achievements" className="hover:text-white">Résultats</Link>
-          <Link href="/notre-histoire" className="hover:text-white">Notre histoire</Link>
-          <Link href="/documentation-complete" className="hover:text-white">Documentation</Link>
-        </nav>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="flex items-center gap-6">
+          <Logo />
+          <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 md:flex">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition-colors hover:text-white"
+              >
+                {item.label === 'Accueil' ? (
+                  <span className="text-gradient">{item.label}</span>
+                ) : (
+                  item.label
+                )}
+              </Link>
+            ))
+          </nav>
+        </div>
+        <Button asChild variant="gradient" size="lg" className="shadow-[0_0_30px_rgba(245,56,160,0.35)]">
+          <Link href="#contact">Contactez-nous</Link>
+        </Button>
       </div>
-      <Button asChild variant="gradient">
-        <Link href="#contact">Parler à Kames</Link>
-      </Button>
     </header>
   )
 }
