@@ -48,4 +48,61 @@ body {
 
 .animate-text-disappear {
   animation: text-disappear 0.7s ease forwards;
+  
+}
+/* === KAMES THEME (ajouts) === */
+:root{
+  /* Couleurs brand pour les effets */
+  --kames-orange:#FF6D00;
+  --kames-orange-soft:#FFB300;
+  --kames-magenta:#F538A0;
+
+  /* Dégradé réutilisable */
+  --brand-gradient: linear-gradient(90deg, var(--kames-orange-soft) 0%, var(--kames-orange) 50%, var(--kames-magenta) 100%);
+}
+
+/* Variante texte dégradé (compatible avec ton .text-gradient existant) */
+.text-gradient-alt{
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Liens du header : hover/actif en orange */
+.nav-link{ color: rgba(255,255,255,.85); transition: color .2s ease; }
+.nav-link:hover{ color: var(--kames-orange); }
+.nav-link.active{ color: var(--kames-orange) !important; }
+
+/* Bande lumineuse orange sous le header */
+.header-glow{ position: relative; }
+.header-glow::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:3px;
+  background: linear-gradient(180deg, rgba(255,109,0,.9), rgba(255,109,0,.35), transparent);
+  filter: blur(1px); pointer-events:none;
+}
+
+/* Bouton rond discret (flèche ↓) */
+.btn-scroll{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48px; height:48px; border-radius:9999px;
+  background: var(--brand-gradient);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow: 0 6px 18px rgba(0,0,0,.35), inset 0 0 0 1px rgba(0,0,0,.25);
+  transition: transform .15s ease, opacity .2s ease;
+}
+.btn-scroll:hover{ transform: translateY(2px); opacity:.95; }
+.btn-scroll svg{ width:18px; height:18px; color:#111; }
+
+/* Héros : plus d’air (comme ta photo 3) */
+.hero-wrap{ padding-top: 9rem; padding-bottom: 8rem; } /* ajuste si tu veux */
+
+/* Force la phrase animée sur UNE ligne */
+.single-line{ white-space: nowrap; }
+
+/* Overlay sombre propre sur l'image de fond */
+.hero-overlay{
+  position:absolute; inset:0;
+  background: radial-gradient(120% 70% at 50% 10%, rgba(0,0,0,.25), rgba(0,0,0,.6) 55%, rgba(0,0,0,.85));
+  pointer-events:none;
 }
