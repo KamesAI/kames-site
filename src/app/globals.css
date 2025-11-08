@@ -152,5 +152,59 @@ body{ font-family: Inter, system-ui, sans-serif; }
 /* Forcer la phrase animée sur une seule ligne */
 .single-line{ white-space: nowrap; }
 
+:root{
+  --k-black: #000000;
+  --k-gray: #151515;
+  --k-white: #FFFFFF;
+  --k-grad-start: #FFB300;
+  --k-grad-mid:   #FF6D00;
+  --k-grad-end:   #F538A0;
+  --k-accent:     #FF6D00;
+  --header-h: 72px;
+}
+
+html, body {
+  background: var(--k-black);
+  color: var(--k-white);
+  scroll-behavior: smooth;
+}
+
+section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+.k-subtle { color: var(--k-gray); }
+
+.k-gradient-text {
+  background: linear-gradient(90deg, var(--k-grad-start), var(--k-grad-mid), var(--k-grad-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.k-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+.k-hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.k-grid-3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1100px){ .k-grid-3{ grid-template-columns: 1fr; } }
+
+.nav-link{ color:#ddd; }
+.nav-link.active{ color: var(--k-accent); }
+
 /* Pour le scroll sous header sticky */
 section{ scroll-margin-top: 88px; } /* le header fait ~80-90px */
