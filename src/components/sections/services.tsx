@@ -13,7 +13,7 @@ const servicesData = [
       'Automatisation ciblée de vos processus via n8n',
       'Hébergement et déploiement sécurisé (AWS/Firebase)',
       'Forfait installation + abonnement maintenance',
-      'Check‑up mensuel & améliorations continues',
+      'Check-up mensuel & améliorations continues',
     ],
   },
   {
@@ -34,7 +34,7 @@ const servicesData = [
     features: [
       'Audit complet de vos processus et outils actuels',
       'Écosystème d’agents IA interconnectés',
-      'Workflows avancés : analyse, génération, décision',
+      'Workflows avancés : analyse, génération, décision',
       'Intégration ERP/CRM/API + évolution long terme',
     ],
   },
