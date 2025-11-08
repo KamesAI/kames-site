@@ -106,3 +106,51 @@ body {
   background: radial-gradient(120% 70% at 50% 10%, rgba(0,0,0,.25), rgba(0,0,0,.6) 55%, rgba(0,0,0,.85));
   pointer-events:none;
 }
+
+/* === KAMES: couleurs & utilitaires === */
+:root{
+  --kames-orange-ui:#FFB300;   /* orange des onglets (cf. ta photo 3) */
+  --kames-orange:#FF6D00;
+  --kames-magenta:#F538A0;
+  --brand-gradient: linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
+}
+
+/* Police identique à ta maquette (titre = Sora, corps = Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap');
+body{ font-family: Inter, system-ui, sans-serif; }
+.font-headline{ font-family: Sora, system-ui, sans-serif; }
+
+/* Liens du header : hover/actif en orange photo 3 */
+.nav-link{ color: rgba(255,255,255,.85); transition: color .2s ease; }
+.nav-link:hover{ color: var(--kames-orange-ui); }
+.nav-link.active{ color: var(--kames-orange-ui) !important; }
+
+/* Bande lumineuse orange sous le header */
+.header-glow{ position: relative; }
+.header-glow::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:3px;
+  background: linear-gradient(180deg, rgba(255,179,0,.9), rgba(255,179,0,.35), transparent);
+  filter: blur(1px); pointer-events:none;
+}
+
+/* Héros: plus d’air + overlay propre */
+.hero-wrap{ padding-top: 9rem; padding-bottom: 10rem; } /* augmente l'espace */
+.hero-overlay{ position:absolute; inset:0; background:
+  radial-gradient(120% 70% at 50% 10%, rgba(0,0,0,.25), rgba(0,0,0,.6) 55%, rgba(0,0,0,.85)); }
+
+/* Bouton rond discret (NOIR, flèche ORANGE) */
+.btn-scroll{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:9999px;
+  background:#000; border:1px solid rgba(255,255,255,.2);
+  box-shadow: 0 6px 18px rgba(0,0,0,.35), inset 0 0 0 1px rgba(0,0,0,.25);
+  transition: transform .15s ease, opacity .2s ease;
+}
+.btn-scroll:hover{ transform: translateY(2px); opacity:.95; }
+.btn-scroll svg{ width:16px; height:16px; color:var(--kames-orange-ui); }
+
+/* Forcer la phrase animée sur une seule ligne */
+.single-line{ white-space: nowrap; }
+
+/* Pour le scroll sous header sticky */
+section{ scroll-margin-top: 88px; } /* le header fait ~80-90px */
