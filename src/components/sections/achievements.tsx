@@ -54,13 +54,13 @@ export function AchievementsSection() {
               <p className="text-sm text-muted-foreground mb-6">
                 {cs.description}
               </p>
-              <Link
+              <a
                 href={cs.link}
                 className="inline-flex items-center text-primary font-semibold hover:underline"
               >
                 Voir l’étude de cas
                 <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              </a>
             </div>
           ))}
         </div>
