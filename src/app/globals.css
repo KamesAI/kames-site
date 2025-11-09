@@ -13,8 +13,9 @@ body {
   font-family: Roboto, system-ui, sans-serif;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg,#FFB300 0%,#FF6D00 50%,#F538A0 100%);
-  -webkit-background-clip:text;
-  color:transparent;
+.gradient-text,
+.text-gradient {
+  background: linear-gradient(90deg, #ffb300 0%, #ff6d00 50%, #f538a0 100%);
+  -webkit-background-clip: text;
+  color: transparent;
 }
