@@ -2,7 +2,6 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 
 const caseStudies = [
   {
@@ -42,11 +41,12 @@ export function AchievementsSection() {
           Découvrez nos implémentations réussies et voyez comment nous avons aidé
           des entreprises à transformer leurs opérations avec des solutions basées sur l’IA.
         </p>
+
         <div className="grid md:grid-cols-2 gap-8 mt-12">
           {caseStudies.map((cs) => (
             <div
               key={cs.title}
-              className="p-6 border border-border rounded-xl hover:shadow-[0_0_1rem_-0.25rem_hsl(var(--primary))] transition-all"
+              className="p-6 border border-white/10 rounded-2xl bg-card/40 hover:shadow-[0_0_1rem_-0.25rem_hsl(var(--primary))] transition-all"
             >
               <h3 className="text-xl font-semibold text-gradient mb-2">
                 {cs.title}
