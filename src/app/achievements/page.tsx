@@ -1,81 +1,54 @@
-import { getAchievementBySlug, achievements } from '@/lib/achievements-data';
-import { notFound } from 'next/navigation';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Badge } from '@/components/ui/badge';
+// src/app/achievements/page.tsx
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 
-type Props = {
-  params: {
-    slug: string;
-  };
+const caseStudies = [
+  {
+    slug: 'logistique-ia',
+    title: 'Optimisation de la logistique avec l’IA prédictive',
+    summary: "Réduction des coûts d’expédition de 25 % grâce à un système prédictif de gestion des stocks.",
+  },
+  {
+    slug: 'chatbots-ia',
+    title: 'Automatisation du service client avec des chatbots IA',
+    summary: "Satisfaction client +40 % avec des chatbots 24/7 entraînés sur la base de connaissances métier.",
+  },
+  {
+    slug: 'analyse-marche',
+    title: 'Outil d’analyse de marché alimenté par l’IA',
+    summary: "Décisions pilotées par la donnée via une surveillance des tendances en temps réel.",
+  },
+  {
+    slug: 'processus-internes',
+    title: 'Automatisation des processus internes',
+    summary: "200+ heures / mois économisées sur la saisie et le reporting.",
+  },
+];
+
+export const metadata = {
+  title: 'Réalisations – Kames AI',
+  description: 'Nos études de cas et succès clients en automatisation IA.',
 };
 
-export function generateStaticParams() {
-  return achievements.map((achievement) => ({
-    slug: achievement.slug,
-  }));
-}
-
-export async function generateMetadata({ params }: Props) {
-  const achievement = getAchievementBySlug(params.slug);
-
-  if (!achievement) {
-    return { title: 'Étude de cas non trouvée' };
-  }
-
-  return {
-    title: `Étude de cas : ${achievement.title}`,
-    description: achievement.summary,
-  };
-}
-
-export default function AchievementPage({ params }: Props) {
-  const achievement = getAchievementBySlug(params.slug);
-
-  if (!achievement) {
-    notFound();
-  }
-
-  const logo = PlaceHolderImages.find(p => p.id === achievement.logoId);
-
+export default function AchievementsPage() {
   return (
     <div className="min-h-screen bg-background">
       <div className="container py-24 mx-auto md:py-32">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/#achievements" className="flex items-center mb-8 text-sm font-medium text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour aux réalisations
-          </Link>
-          <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
-            {logo && (
-              <div className="p-4 rounded-lg bg-card">
-                <Image
-                  src={logo.imageUrl}
-                  alt={`Logo de ${achievement.client}`}
-                  width={120}
-                  height={60}
-                  className="object-contain filter invert"
-                  data-ai-hint={logo.imageHint}
-                />
-              </div>
-            )}
-            <Badge variant="secondary">{achievement.client}</Badge>
-          </div>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-gradient md:text-5xl">
-            {achievement.title}
-          </h1>
-          <Card className="mt-12">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold">Défi</h2>
-              <p className="mt-4 text-lg text-muted-foreground">{achievement.summary}</p>
-              
-              <h2 className="mt-12 text-2xl font-bold">Solution & Résultats</h2>
-              <p className="mt-4 text-lg text-muted-foreground">{achievement.details}</p>
-            </CardContent>
-          </Card>
+        <h1 className="text-4xl font-bold tracking-tight text-gradient md:text-5xl">Réalisations</h1>
+        <p className="mt-3 text-lg text-muted-foreground">
+          Découvrez comment nous avons transformé les opérations de nos clients.
+        </p>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {caseStudies.map((cs) => (
+            <Link
+              key={cs.slug}
+              href={`/realisations/${cs.slug}`}
+              className="p-6 border border-white/10 rounded-2xl bg-card/40 hover:shadow-[0_0_1rem_-0.25rem_hsl(var(--primary))] transition-all"
+            >
+              <h3 className="text-xl font-semibold text-gradient mb-2">{cs.title}</h3>
+              <p className="text-sm text-muted-foreground">{cs.summary}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
