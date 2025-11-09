@@ -1,3 +1,4 @@
+'use client';
 import { ArrowLeft, BookOpen, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import {
