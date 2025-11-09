@@ -5,6 +5,26 @@ import Logo from '@/components/logo';
 import { Button } from '@/components/ui/button';
 
 export default function Header() {
+  const [active, setActive] = useState<string>("");
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 }
+    );
+
+    items.forEach((i) => {
+      const el = document.getElementById(i.id);
+      if (el) obs.observe(el);
+    });
+
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
