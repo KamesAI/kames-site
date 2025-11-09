@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Logo } from '@/components/logo';
+import Logo from '@/components/logo';
 import { Github, Linkedin } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
