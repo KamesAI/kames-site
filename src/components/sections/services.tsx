@@ -1,54 +1,46 @@
-'use client';
+"use client";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, ArrowRight, Settings, Lightbulb, Rocket, Shapes } from 'lucide-react';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check, ArrowRight, Lightbulb, Rocket, Shapes } from 'lucide-react';
 import Link from 'next/link';
 
 const servicesData = [
   {
     icon: <Lightbulb className="w-8 h-8 text-primary" />,
     title: 'Offre Standard — Automatisation essentielle',
-    subtitle: 'Idéale pour les petites entreprises ou indépendants souhaitant automatiser leurs tâches répétitives.',
     price: 'À partir de 490 € + 79 €/mois',
-    delay: 'Délai moyen : 5 à 10 jours ouvrés',
     features: [
-      'Automatisation ciblée de vos processus métiers via n8n (emails, CRM, facturation, suivi client, etc.)',
-      'Hébergement et déploiement sécurisé de votre solution IA sur nos serveurs (AWS/Firebase)',
-      'Forfait d’installation fixe, puis abonnement mensuel couvrant maintenance et support',
-      'Check-up mensuel : audit des performances et améliorations continues',
-    ]
+      'Automatisation ciblée de vos processus via n8n',
+      'Hébergement et déploiement sécurisé (AWS/Firebase)',
+      'Forfait installation + abonnement maintenance',
+      'Check‑up mensuel & améliorations continues',
+    ],
   },
   {
     icon: <Rocket className="w-8 h-8 text-primary" />,
     title: 'Offre Premium — Système IA complet',
-    subtitle: 'Pour les entreprises souhaitant intégrer des agents IA autonomes et des workflows complexes.',
     price: 'À partir de 1 490 € + 149 €/mois',
-    delay: 'Délai moyen : 2 à 4 semaines',
     features: [
-      'Conception et développement d’un système IA sur mesure avec plusieurs agents intelligents (prospection, reporting, RDV, génération de documents, etc.)',
-      'Hébergement, déploiement et supervision continue de votre environnement n8n + intégrations (Microsoft 365, Google, Fireflies, PandaDoc, etc.)',
-      'Mises à jour et évolutions régulières selon vos besoins métiers',
-      'Assistance technique prioritaire et amélioration continue des performances',
+      'Conception & dev d’un système sur mesure (agents IA)',
+      'Supervision continue + intégrations (M365, Google, etc.)',
+      'Mises à jour régulières selon besoins métiers',
+      'Assistance prioritaire & amélioration des performances',
     ],
   },
   {
     icon: <Shapes className="w-8 h-8 text-primary" />,
     title: 'Offre Sur Mesure — Écosystème IA complet',
-    subtitle: 'Conçue pour les structures ambitieuses cherchant à bâtir leur propre infrastructure IA.',
     price: 'Sur devis (à partir de 5 000 €)',
-    delay: 'Selon la complexité du projet',
     features: [
-      'Audit complet de vos processus internes et de vos outils actuels',
-      'Création d’un écosystème global d’automatisation et d’agents IA interconnectés',
-      'Développement de workflows avancés intégrant analyse, génération, décision et reporting',
-      'Intégration avec vos outils internes (ERP, CRM, cloud privé, API spécifiques, etc.)',
-      'Suivi stratégique et évolution long terme avec plan d’amélioration continue',
+      'Audit complet de vos processus et outils actuels',
+      'Écosystème d’agents IA interconnectés',
+      'Workflows avancés : analyse, génération, décision',
+      'Intégration ERP/CRM/API + évolution long terme',
     ],
   },
 ];
 
 export function Services() {
-
   return (
     <section id="services" className="bg-background section-padding">
       <div className="container mx-auto">
@@ -67,11 +59,13 @@ export function Services() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {servicesData.map((service) => (
-            <Card key={service.title} className="flex flex-col transition-all duration-300 bg-card hover:shadow-[0_0_1rem_-0.25rem_hsl(var(--primary))] hover:border-primary hover:-translate-y-2">
+            <Card
+              key={service.title}
+              className="flex flex-col transition-all duration-300 bg-card hover:shadow-[0_0_1rem_-0.25rem_hsl(var(--primary))] hover:border-primary hover:-translate-y-2"
+            >
               <CardHeader className="text-center">
                 <div className="flex justify-center mb-4">{service.icon}</div>
                 <CardTitle className="text-xl font-bold text-gradient">{service.title}</CardTitle>
-                <CardDescription className="px-4">{service.subtitle}</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col flex-grow p-6 space-y-6">
                 <div>
@@ -85,15 +79,17 @@ export function Services() {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="flex-grow" />
                 <div className="pt-4 text-center border-t border-border">
                   <p className="font-semibold text-primary">{service.price}</p>
-                  <p className="text-xs text-muted-foreground">{service.delay}</p>
                 </div>
               </CardContent>
               <CardFooter className="justify-center">
-                <Link href="/nos-services" className="flex items-center text-sm font-semibold transition-colors text-primary hover:text-foreground group">
+                <Link
+                  href="/nos-services"
+                  className="flex items-center text-sm font-semibold transition-colors text-primary hover:text-foreground group"
+                >
                   En savoir plus
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
