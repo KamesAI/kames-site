@@ -1,127 +1,90 @@
+/* POLICES (doit être avant toute règle CSS) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap');
+
+/* Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Couleurs de base */
 :root {
-  --k-black: #000000;
-  --k-gray: #151515;
-  --k-white: #FFFFFF;
-  --k-grad-start: #FFB300;   /* orange/jaune */
-  --k-grad-mid:   #FF6D00;   /* orange vif   */
-  --k-grad-end:   #F538A0;   /* magenta/rose */
-  --k-accent:     #FF6D00;   /* liens actifs / hover */
-  --header-h: 72px;          /* hauteur du header */
+  --bg:#000000;
+  --text:#ffffff;
+
+  /* Brand */
+  --kames-orange-ui:#FFB300;  /* orange des onglets (UI) */
+  --kames-orange:#FF6D00;
+  --kames-magenta:#F538A0;
+
+  /* Dégradé réutilisable */
+  --brand-gradient: linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
 }
 
-/* Global */
-html, body {
-  background: var(--k-black);
-  color: var(--k-white);
-  scroll-behavior: smooth;
-  font-family: 'Roboto', sans-serif;
+/* Font globale */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
 }
 
-/* Marges des sections */
-section[id] {
-  scroll-margin-top: calc(var(--header-h) + 16px);
-}
+/* Font titres */
+.font-headline{ font-family: Sora, system-ui, sans-serif; }
 
-/* Couleurs */
-.k-subtle {
-  color: var(--k-gray);
-}
-
-.gradient-text,
+/* Texte en dégradé (une seule définition) */
 .text-gradient {
-  background: linear-gradient(90deg, #ffb300 0%, #ff6d00 50%, #f538a0 100%);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-@keyframes text-appear {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-
-@keyframes text-disappear {
-  0% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-}
-
-.animate-text-appear {
-  animation: text-appear 0.7s ease forwards;
-}
-
-.animate-text-disappear {
-  animation: text-disappear 0.7s ease forwards;
-.k-gradient-text {
-  background: linear-gradient(90deg, var(--k-grad-start), var(--k-grad-mid), var(--k-grad-end));
+  background: var(--brand-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Structure */
-.k-section {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 72px 24px;
+/* Animations texte (héros) */
+@keyframes text-appear {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0%); opacity: 1; }
+}
+@keyframes text-disappear {
+  0% { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+.animate-text-appear { animation: text-appear 0.7s ease forwards; }
+.animate-text-disappear { animation: text-disappear 0.7s ease forwards; }
+
+/* Liens du header : hover/actif orange */
+.nav-link{ color: rgba(255,255,255,.85); transition: color .2s ease; }
+.nav-link:hover{ color: var(--kames-orange-ui); }
+.nav-link.active{ color: var(--kames-orange-ui) !important; }
+
+/* Bande lumineuse orange sous le header */
+.header-glow{ position: relative; }
+.header-glow::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px; height:3px;
+  background: linear-gradient(180deg, rgba(255,179,0,.9), rgba(255,179,0,.35), transparent);
+  filter: blur(1px); pointer-events:none;
 }
 
-/* Hero */
-.k-hero {
-  position: relative;
-  min-height: calc(100vh - var(--header-h));
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 0 24px;
-}
-.k-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.55) 100%);
-  pointer-events: none;
+/* Héros : espacement/overlay */
+.hero-wrap{ padding-top: 9rem; padding-bottom: 10rem; } /* augmente l'espace sous le héros */
+.hero-overlay{
+  position:absolute; inset:0;
+  background: radial-gradient(120% 70% at 50% 10%, rgba(0,0,0,.25), rgba(0,0,0,.6) 55%, rgba(0,0,0,.85));
+  pointer-events:none;
 }
 
-/* Cartes services */
-.k-card {
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 1.25rem;
-  padding: 28px;
-  background: rgba(255,255,255,0.02);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset;
-}
+/* Forcer la phrase animée sur UNE ligne */
+.single-line{ white-space: nowrap; }
 
-/* Grille services */
-.k-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+/* Bouton rond discret (NOIR, flèche ORANGE) */
+.btn-scroll{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:9999px;
+  background:#000; border:1px solid rgba(255,255,255,.2);
+  box-shadow: 0 6px 18px rgba(0,0,0,.35), inset 0 0 0 1px rgba(0,0,0,.25);
+  transition: transform .15s ease, opacity .2s ease;
 }
-@media (max-width: 1100px) {
-  .k-grid-3 {
-    grid-template-columns: 1fr;
-  }
-}
+.btn-scroll:hover{ transform: translateY(2px); opacity:.95; }
+.btn-scroll svg{ width:16px; height:16px; color:var(--kames-orange-ui); }
 
-/* Navigation */
-.nav-link {
-  color: #ddd;
-  transition: color 0.3s ease;
-}
-.nav-link.active {
-  color: var(--k-accent);
-}
-
-/* Garde ton rond/flèche : pas de modification ici */
+/* Décalage d'ancrage sous le header sticky */
+section{ scroll-margin-top: 88px; }
