@@ -1,53 +1,65 @@
-"use client";
+'use client';
 
-import Link from 'next/link';
-import Logo from '@/components/logo';
-import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
+
+const LINKS = [
+  { id: 'services', label: 'Services' },
+  { id: 'realisations', label: 'Réalisations' },
+  { id: 'apropos', label: 'À propos' },
+  { id: 'contact', label: 'Contact' },
+];
 
 export default function Header() {
-  const [active, setActive] = useState<string>("");
+  const [active, setActive] = useState<string>('');
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
+    const sections = LINKS.map(l => document.getElementById(l.id)).filter(Boolean) as HTMLElement[];
+    if (!sections.length) return;
+
+    const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) setActive(visible.target.id);
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 }
+      { rootMargin: '-35% 0px -55% 0px', threshold: [0.1, 0.25, 0.5] }
     );
 
-    items.forEach((i) => {
-      const el = document.getElementById(i.id);
-      if (el) obs.observe(el);
-    });
-
-    return () => obs.disconnect();
+    sections.forEach(s => io.observe(s));
+    return () => io.disconnect();
   }, []);
 
+  const go = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setActive(id);
+    history.replaceState(null, '', `#${id}`);
+  };
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+    <header className="header-glow sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-6">
-          <Logo />
-          <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 md:flex">
-            <Link href="/nos-services" className="transition-colors hover:text-white">
-              Services
-            </Link>
-            <Link href="/achievements" className="transition-colors hover:text-white">
-              Réalisations
-            </Link>
-            <Link href="/notre-histoire" className="transition-colors hover:text-white">
-              À propos
-            </Link>
-            <Link href="#contact" className="transition-colors hover:text-white">
-              Contact
-            </Link>
-          </nav>
-        </div>
-        <Button asChild variant="gradient" size="lg" className="shadow-[0_0_30px_rgba(245,56,160,0.35)]">
-          <Link href="#contact">Contactez-nous</Link>
-        </Button>
+        <a href="/" className="text-lg font-headline font-semibold tracking-tight">KAMES</a>
+        <nav className="flex items-center gap-8 text-sm">
+          {LINKS.map(link => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={go(link.id)}
+              className={`nav-link ${active === link.id ? 'active' : ''}`}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={go('contact')}
+            className="rounded-xl border border-white/15 px-3 py-1.5 text-sm nav-link"
+          >
+            Contactez-nous
+          </a>
+        </nav>
       </div>
     </header>
   );
