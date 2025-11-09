@@ -1,8 +1,8 @@
 // src/lib/achievements-data.ts
 export type Achievement = {
   slug: string;
-  title: string;
   client: string;
+  title: string;
   summary: string;
   details: string;
   logoUrl?: string;
@@ -12,33 +12,37 @@ export const achievements: Achievement[] = [
   {
     slug: 'logistique-ia',
     client: 'Client logistique',
-    title: 'Optimisation de la logistique avec l’IA prédictive',
-    summary: "Réduction des coûts d’expédition de 25 % grâce à un système prédictif de gestion des stocks.",
-    details: "Mise en place d’un pipeline d’IA (prévision demande, réassort, alerting n8n). Intégration ERP et tableau de bord.",
-    logoUrl: '/og-image.png'
+    title: "Optimisation de la logistique avec l’IA prédictive",
+    summary: "Réduction des coûts d’expédition de 25 %.",
+    details: "Modèle prédictif + automatisations n8n → baisse des ruptures, gains de temps.",
+    logoUrl: '',
   },
   {
     slug: 'chatbots-ia',
-    client: 'Support 24/7',
+    client: 'Retail',
     title: 'Automatisation du service client avec des chatbots IA',
-    summary: "Satisfaction client +40 % avec des chatbots 24/7 sur la base de connaissances.",
-    details: "Ingestion KB, fine-tuning prompts, routage humain, suivi des métriques (CSAT).",
-    logoUrl: '/og-image.png'
+    summary: 'Satisfaction client +40 %',
+    details: 'Chatbots 24/7 + base de connaissances.',
+    logoUrl: '',
   },
   {
     slug: 'analyse-marche',
-    client: 'PME Retail',
+    client: 'FinTech',
     title: 'Outil d’analyse de marché alimenté par l’IA',
-    summary: "Décisions pilotées par la donnée via la surveillance des tendances en temps réel.",
-    details: "Scraping légal, normalisation, scoring d’opportunités, reporting hebdo.",
-    logoUrl: '/og-image.png'
+    summary: 'Décisions data-driven',
+    details: 'Scraping légal + agrégation + dashboard.',
+    logoUrl: '',
   },
   {
     slug: 'processus-internes',
-    client: 'Direction Opérations',
+    client: 'PME',
     title: 'Automatisation des processus internes',
-    summary: "200+ heures / mois économisées sur la saisie et le reporting.",
-    details: "Automatisation multi-apps (Excel/Notion/Drive), validations et logs, réduction d’erreurs.",
-    logoUrl: '/og-image.png'
+    summary: '200 h/mois économisées',
+    details: 'Intégrations back-office + RPA light.',
+    logoUrl: '',
   },
 ];
+
+export function getAchievementBySlug(slug: string) {
+  return achievements.find((a) => a.slug === slug);
+}
