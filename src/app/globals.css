@@ -88,3 +88,17 @@ body {
 
 /* Décalage d'ancrage sous le header sticky */
 section{ scroll-margin-top: 88px; }
+
+/* === Hero reveal animations (no extra deps) === */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-mask-reveal {
+  from { clip-path: polygon(0 0,0 0,0 100%,0 100%); opacity: 0; }
+  to   { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); opacity: 1; }
+}
+.animate-fade-up { animation: fade-up .7s ease both; }
+.animate-mask    { animation: slide-mask-reveal .9s cubic-bezier(.22,1,.36,1) both; }
+.anim-delay-200  { animation-delay: .2s; }
+.anim-delay-600  { animation-delay: .6s; }
