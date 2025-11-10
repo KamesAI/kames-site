@@ -5,3 +5,16 @@ import { AchievementsSection } from '@/components/sections/achievements';
 import { AboutSection } from '@/components/sections/about';
 import { DocumentationSection } from '@/components/sections/documentation';
 import { ContactSection } from '@/components/sections/contact';
+
+export default function Home() {
+  return (
+    <main className="min-h-screen">
+      <Hero />
+      <Services />
+      <AchievementsSection />
+      <AboutSection />
+      <DocumentationSection />
+      <ContactSection />
+    </main>
+  );
+}
