@@ -9,7 +9,7 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-white text-black hover:bg-white/90 border border-white/10',
         outline: 'bg-transparent border border-white/20 text-white hover:bg-white/5',
-        gradient: 'text-white bg-gradient-to-r from-[#FFB300] via-[#FF6D00] to-[#F538A0] hover:opacity-90',
+        gradient: 'text-gradient bg-black border-2 border-gradient-cta hover:opacity-80',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -30,17 +30,28 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild, children, ...props }, ref) => {
+    // Si asChild est true, on rend les enfants directement (comme du texte ou un Link)
+    if (asChild) {
+      return (
+        <span className={cn(buttonVariants({ variant, size }), className)}>
+          {children}
+        </span>
+      )
+    }
+
     return (
       <button
         ref={ref}
         className={cn(buttonVariants({ variant, size }), className)}
         {...props}
-      />
+      >
+        {children}
+      </button>
     )
   }
 )
 Button.displayName = 'Button'
 
-export { buttonVariants }
+export { Button, buttonVariants }

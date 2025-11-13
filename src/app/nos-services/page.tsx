@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
 export default function NosServicesPage() {
   const [sent, setSent] = useState(false);
@@ -11,8 +12,19 @@ export default function NosServicesPage() {
       id="top"
       className="min-h-screen w-full bg-black text-white antialiased"
     >
+      {/* CTA RETOUR À L'ACCUEIL */}
+      <div className="mx-auto max-w-6xl px-6 pt-8">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Retour à l&apos;accueil</span>
+        </Link>
+      </div>
+
       {/* HERO */}
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-10 md:pt-28 md:pb-16">
+      <section className="mx-auto max-w-6xl px-6 pt-12 pb-10 md:pt-20 md:pb-16">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <h1 className="text-3xl font-semibold leading-tight md:text-5xl">
@@ -28,13 +40,13 @@ export default function NosServicesPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="#comparatif"
-                className="rounded-2xl border border-[#FF6D00] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5 md:text-base"
+                className="rounded-2xl border border-[#FFB300] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5 md:text-base"
               >
                 Voir nos offres
               </Link>
               <Link
                 href="#contact"
-                className="rounded-2xl border border-[#FF6D00] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5 md:text-base"
+                className="rounded-2xl border border-[#FFB300] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5 md:text-base"
               >
                 Demander un devis
               </Link>
@@ -72,7 +84,7 @@ export default function NosServicesPage() {
           <span className="text-gradient">Pourquoi choisir Kames ?</span>
         </h2>
         <p className="mt-3 text-sm text-white/70 md:text-base">
-          L’IA doit être utile, rentable et simple à exploiter. Nos engagements
+          L&apos;IA doit être utile, rentable et simple à exploiter. Nos engagements
           clés.
         </p>
 
@@ -80,7 +92,7 @@ export default function NosServicesPage() {
           {[
             {
               title: 'Orienté résultats',
-              desc: 'Analyse ROI en amont, KPI de temps gagné, taux d’automatisation, et économies obtenues.',
+              desc: 'Analyse ROI en amont, KPI de temps gagné, taux d\'automatisation, et économies obtenues.',
             },
             {
               title: 'Architecture évolutive',
@@ -92,11 +104,11 @@ export default function NosServicesPage() {
             },
             {
               title: 'Transparence & pédagogie',
-              desc: 'Pas de jargon: démos, docs concises, et formation orientée cas d’usage.',
+              desc: 'Pas de jargon: démos, docs concises, et formation orientée cas d\'usage.',
             },
             {
               title: 'Maintenance proactive',
-              desc: 'Monitoring, correctifs rapides, roadmap d’optimisation en continu.',
+              desc: 'Monitoring, correctifs rapides, roadmap d\'optimisation en continu.',
             },
             {
               title: 'Intégrations riches',
@@ -133,7 +145,7 @@ export default function NosServicesPage() {
               step: '1. Audit & Analyse',
               points: [
                 'Cartographie des processus: tâches répétitives, frictions, risques.',
-                'Hypothèses d’automatisation + estimation de ROI (heures/mois, €).',
+                'Hypothèses d\'automatisation + estimation de ROI (heures/mois, €).',
                 'Priorisation: impact × faisabilité (quick wins → projets structurants).',
               ],
             },
@@ -141,7 +153,7 @@ export default function NosServicesPage() {
               step: '2. Conception & Développement',
               points: [
                 'Workflows n8n + agents IA (ChatGPT/Claude) orchestrés.',
-                'Intégrations Microsoft/Google/CRM, gestion d’erreurs & logs.',
+                'Intégrations Microsoft/Google/CRM, gestion d\'erreurs & logs.',
                 'Qualité: tests unitaires sur flux, sandbox & revue guidée.',
               ],
             },
@@ -186,7 +198,7 @@ export default function NosServicesPage() {
           <span className="text-gradient">Comparatif des offres</span>
         </h2>
         <p className="mt-3 text-sm text-white/70 md:text-base">
-          Choisissez le niveau adapté aujourd’hui, faites‑le évoluer demain —
+          Choisissez le niveau adapté aujourd&apos;hui, faites‑le évoluer demain —
           sans repartir de zéro.
         </p>
 
@@ -216,7 +228,7 @@ export default function NosServicesPage() {
             <div className="mt-6">
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-2xl border border-[#FF6D00] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-2xl border border-[#FFB300] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5"
               >
                 Demander un devis
               </Link>
@@ -237,7 +249,7 @@ export default function NosServicesPage() {
               </p>
             </header>
             <ul className="mt-5 space-y-3 text-sm text-white/80">
-                <li><span className="font-semibold text-white/90">Objectif :</span> Créer un système reposant sur l'IA efficace et complet</li>
+                <li><span className="font-semibold text-white/90">Objectif :</span> Créer un système reposant sur l&apos;IA efficace et complet</li>
                 <li><span className="font-semibold text-white/90">Technologie :</span> n8n + agents IA + intégrations</li>
                 <li><span className="font-semibold text-white/90">Analyse :</span> Complète, avec focus 3-5 processus</li>
                 <li><span className="font-semibold text-white/90">Maintenance :</span> Mises à jour hebdomadaires et check-up continu</li>
@@ -245,13 +257,13 @@ export default function NosServicesPage() {
                 <li><span className="font-semibold text-white/90">Formation :</span> Équipe + micro-docs</li>
             </ul>
             <div className="mt-auto pt-6 text-sm opacity-80">
-              <p>À partir de <span className="font-semibold text-primary">1 490 €</span> <span className="text-primary">+</span> <span className="font-semibold text-primary">149 €/mois</span></p>
+              <p>À partir de <span className="font-semibold text-primary">1 490 €</span> <span className="text-primary">+</span> <span className="font-semibold text-primary">149 €/mois</span></p>
               <p className="mt-1">Délai : <span className="font-semibold">2–4 semaines</span></p>
             </div>
             <div className="mt-6">
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-2xl border border-[#FF6D00] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-2xl border border-[#FFB300] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5"
               >
                 Demander un devis
               </Link>
@@ -277,13 +289,13 @@ export default function NosServicesPage() {
                 <li><span className="font-semibold text-white/90">Formation :</span> Personnalisée</li>
             </ul>
             <div className="mt-auto pt-6 text-sm opacity-80">
-              <p>Sur devis - <span className="font-semibold text-primary">dès 5 000 €</span></p>
+              <p>Sur devis - <span className="font-semibold text-primary">dès 5 000 €</span></p>
               <p className="mt-1">Délai : <span className="font-semibold">Selon projet</span></p>
             </div>
             <div className="mt-6">
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-2xl border border-[#FF6D00] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-2xl border border-[#FFB300] px-5 py-3 text-sm transition hover:-translate-y-0.5 hover:bg-white/5"
               >
                 Demander un devis
               </Link>
@@ -292,7 +304,7 @@ export default function NosServicesPage() {
         </div>
       </section>
 
-      {/* SECTION CONTACT (destination unique des CTA) */}
+      {/* SECTION CONTACT */}
       <section id="contact" className="mx-auto max-w-4xl px-6 py-16 md:py-20">
         <h2 className="text-center text-2xl font-semibold md:text-4xl">
           <span className="text-gradient">
@@ -315,12 +327,9 @@ export default function NosServicesPage() {
             className="mt-8 grid gap-4"
             onSubmit={(e) => {
               e.preventDefault();
-              // TODO: connecter à Firebase (Cloud Functions) ou webhook n8n
-              // ex: fetch('/api/devis', { method: 'POST', body: new FormData(e.currentTarget) })
               setSent(true);
             }}
           >
-            {/* Ligne 1: Nom */}
             <div className="grid gap-4 md:grid-cols-2">
               <div className="grid gap-2">
                 <label htmlFor="firstName" className="text-sm text-white/70">Prénom *</label>
@@ -334,21 +343,18 @@ export default function NosServicesPage() {
               </div>
             </div>
 
-            {/* Ligne 2: Email */}
             <div className="grid gap-2">
               <label htmlFor="email" className="text-sm text-white/70">Email professionnel *</label>
               <input id="email" name="email" type="email" required placeholder="prenom@entreprise.com"
                 className="rounded-xl border border-white/10 bg-transparent px-4 py-3 outline-none focus:border-[#FF6D00]" />
             </div>
 
-            {/* Ligne 3: Rôle */}
             <div className="grid gap-2">
-              <label htmlFor="role" className="text-sm text-white/70">Votre rôle dans l’organisation *</label>
+              <label htmlFor="role" className="text-sm text-white/70">Votre rôle dans l&apos;organisation *</label>
               <input id="role" name="role" required placeholder="Ex. CTO, Directeur des Opérations, Chef de projet…"
                 className="rounded-xl border border-white/10 bg-transparent px-4 py-3 outline-none focus:border-[#FF6D00]" />
             </div>
 
-            {/* Ligne 4: Société & Site */}
             <div className="grid gap-4 md:grid-cols-2">
               <div className="grid gap-2">
                 <label htmlFor="company" className="text-sm text-white/70">Entreprise *</label>
@@ -362,7 +368,6 @@ export default function NosServicesPage() {
               </div>
             </div>
 
-            {/* Ligne 5: Téléphone & Taille */}
             <div className="grid gap-4 md:grid-cols-2">
               <div className="grid gap-2">
                 <label htmlFor="phone" className="text-sm text-white/70">Téléphone (optionnel)</label>
@@ -370,7 +375,7 @@ export default function NosServicesPage() {
                   className="rounded-xl border border-white/10 bg-transparent px-4 py-3 outline-none focus:border-[#FF6D00]" />
               </div>
               <div className="grid gap-2">
-                <label htmlFor="companySize" className="text-sm text-white/70">Taille de l’entreprise *</label>
+                <label htmlFor="companySize" className="text-sm text-white/70">Taille de l&apos;entreprise *</label>
                 <select id="companySize" name="companySize" required className="appearance-none rounded-xl border border-white/10 bg-transparent px-4 py-3 outline-none focus:border-[#FF6D00]"
                  style={{
                     backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
@@ -388,10 +393,9 @@ export default function NosServicesPage() {
               </div>
             </div>
 
-            {/* Ligne 6: CA & Budget */}
             <div className="grid gap-4 md:grid-cols-2">
               <div className="grid gap-2">
-                <label htmlFor="annualRevenue" className="text-sm text-white/70">Chiffre d’affaires annuel *</label>
+                <label htmlFor="annualRevenue" className="text-sm text-white/70">Chiffre d&apos;affaires annuel *</label>
                 <select id="annualRevenue" name="annualRevenue" required className="appearance-none rounded-xl border border-white/10 bg-transparent px-4 py-3 outline-none focus:border-[#FF6D00]"
                    style={{
                     backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
@@ -401,7 +405,7 @@ export default function NosServicesPage() {
                   }}
                 >
                   <option className="bg-black" value="">Sélectionner</option>
-                  <option className="bg-black" value="<200k">{"< 200 k€"}</option>
+                  <option className="bg-black" value="<200k">{'< 200 k€'}</option>
                   <option className="bg-black" value="200k-1m">200 k€ – 1 M€</option>
                   <option className="bg-black" value="1m-5m">1 – 5 M€</option>
                   <option className="bg-black" value="5m+">5 M€ +</option>
@@ -418,22 +422,20 @@ export default function NosServicesPage() {
                   }}
                 >
                   <option className="bg-black" value="">Sélectionner</option>
-                  <option className="bg-black" value="<1500">{"< 1 500 €"}</option>
-                  <option className="bg-black" value="1500-3000">1 500 – 3 000 €</option>
-                  <option className="bg-black" value="3000-8000">3 000 – 8 000 €</option>
-                  <option className="bg-black" value="8000+">8 000 € +</option>
+                  <option className="bg-black" value="<1500">{'< 1 500 €'}</option>
+                  <option className="bg-black" value="1500-3000">1 500 – 3 000 €</option>
+                  <option className="bg-black" value="3000-8000">3 000 – 8 000 €</option>
+                  <option className="bg-black" value="8000+">8 000 € +</option>
                 </select>
               </div>
             </div>
 
-            {/* Ligne 7: Besoin */}
             <div className="grid gap-2">
               <label htmlFor="message" className="text-sm text-white/70">Comment pouvons‑nous aider ? *</label>
               <textarea id="message" name="message" required rows={5} placeholder="Décrivez vos besoins: ex. automatiser prospection + RDV + devis, intégration Microsoft 365/Notion/CRM, contraintes et délais…"
                 className="rounded-xl border border-white/10 bg-transparent px-4 py-3 outline-none focus:border-[#FF6D00]" />
             </div>
 
-            {/* Opt-ins */}
             <div className="mt-2 space-y-2 text-sm">
               <label className="flex items-start gap-3 text-white/80">
                 <input type="checkbox" name="optEmail" className="mt-1 h-4 w-4 rounded border-white/20 bg-transparent text-primary focus:ring-primary" />
@@ -445,13 +447,12 @@ export default function NosServicesPage() {
               </label>
             </div>
 
-            {/* Consentement RGPD */}
             <div className="mt-2 text-xs text-white/60">
               En envoyant ce formulaire, vous acceptez notre traitement de vos données pour répondre à votre demande. <Link href="/politique-confidentialite" className="underline hover:text-white">Politique de confidentialité</Link>.
             </div>
 
             <div className="pt-3">
-              <button type="submit" className="w-full rounded-2xl border border-[#FF6D00] px-6 py-3 font-medium transition hover:-translate-y-0.5 hover:bg-white/5">
+              <button type="submit" className="w-full rounded-2xl border border-[#FFB300] px-6 py-3 font-medium transition hover:-translate-y-0.5 hover:bg-white/5">
                 Envoyer ma demande
               </button>
             </div>
