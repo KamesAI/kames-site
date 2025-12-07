@@ -1,4 +1,4 @@
-import type {Config} from 'tailwindcss';
+import type { Config } from 'tailwindcss';
 
 export default {
   darkMode: ['class'],
@@ -71,6 +71,12 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      // Ajout des images de fond personnalisées (gradients)
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
       keyframes: {
         'accordion-down': {
           from: {
@@ -105,12 +111,17 @@ export default {
           '100%': { opacity: '0', transform: 'translateX(-50%)' },
         },
         'fade-in': {
-            '0%': { opacity: '0' },
-            '100%': { opacity: '1' },
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
         'fade-out': {
-            '0%': { opacity: '1' },
-            '100%': { opacity: '0' },
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        // AJOUT CLÉ : Keyframes pour le défilement infini
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       animation: {
@@ -122,6 +133,8 @@ export default {
         'text-disappear': 'text-disappear 0.5s ease-in forwards',
         'fade-in': 'fade-in 0.3s ease-in-out forwards',
         'fade-out': 'fade-out 0.3s ease-in-out forwards',
+        // AJOUT CLÉ : Définition de l'animation scroll
+        scroll: 'scroll 40s linear infinite',
       },
     },
   },
