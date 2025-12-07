@@ -13,10 +13,17 @@
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: Roboto, system-ui, sans-serif;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* === Dégradé Orange → Magenta === */
+/* === UTILS === */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* === TEXT GRADIENT KAMES === */
 .text-gradient {
   background: linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
   -webkit-background-clip: text;
@@ -24,19 +31,91 @@ body {
   background-clip: text;
 }
 
-/* === Classe utilitaire pour les boutons gradient === */
-.btn-gradient {
+.bg-gradient-kames {
   background: linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
-  color: white;
-  transition: opacity 0.3s ease;
 }
 
-.btn-gradient:hover {
-  opacity: 0.9;
+/* === ANIMATION: SCROLL INFINI (MARQUEE) === */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll {
+  animation: scroll 40s linear infinite;
 }
 
-/* === Animation pour les phrases qui tournent === */
-@keyframes text-appear-custom {
+/* === ANIMATION: MAGIC BORDER SPIN === */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* === COMPOSANT: MAGIC BUTTON (Aura Style) === */
+.magic-btn-container {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 9999px; /* Pill shape */
+  padding: 1px; /* Border width */
+}
+
+.magic-btn-container::before {
+  content: "";
+  position: absolute;
+  inset: -1000%;
+  background: conic-gradient(from 90deg at 50% 50%, transparent 0%, #FFB300 50%, #F538A0 100%);
+  animation: spin 3s linear infinite;
+}
+
+.magic-btn-content {
+  position: relative;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #050505;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  transition: background-color 0.2s;
+}
+
+.magic-btn-container:hover .magic-btn-content {
+  background-color: #0a0a0a;
+}
+
+/* === GLASS CARD EFFECT === */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === NAVBAR PILL === */
+.nav-pill {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* === FAQ DETAILS === */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* === ANIMATION TEXTE ROTATIF (Restauré) === */
+@keyframes text-appear {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -47,7 +126,7 @@ body {
   }
 }
 
-@keyframes text-disappear-custom {
+@keyframes text-disappear {
   0% {
     opacity: 1;
     transform: translateX(0);
@@ -58,70 +137,10 @@ body {
   }
 }
 
-.animate-text-appear-custom {
-  animation: text-appear-custom 0.5s ease-out forwards;
+.animate-text-appear {
+  animation: text-appear 0.5s ease-out forwards;
 }
 
-.animate-text-disappear-custom {
-  animation: text-disappear-custom 0.5s ease-in forwards;
-}
-
-/* === Sticky header styling === */
-.sticky-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px);
-  background-color: rgba(0, 0, 0, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-/* === Lien de navigation actif === */
-.nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-link.active {
-  color: var(--orange-primary);
-  font-weight: 500;
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
-  border-radius: 1px;
-}
-
-/* === Classe pour le bouton CTA avec dégradé sur la bordure === */
-.border-gradient-cta {
-  background-image: 
-    linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%),
-    linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-}
-
-.border-gradient-cta:hover {
-  background-image: 
-    linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%),
-    linear-gradient(90deg, #FF6D00 0%, #F538A0 50%, #FFB300 100%);
-}
-/* === Classe utilitaire pour l'espacement uniforme des sections === */
-.section-padding {
-  padding-top: 6rem; /* py-24 */
-  padding-bottom: 6rem; /* py-24 */
-}
-
-@media (min-width: 768px) {
-  .section-padding {
-    padding-top: 8rem; /* md:py-32 */
-    padding-bottom: 8rem; /* md:py-32 */
-  }
+.animate-text-disappear {
+  animation: text-disappear 0.5s ease-in forwards;
 }

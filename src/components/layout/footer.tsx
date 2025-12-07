@@ -1,8 +1,9 @@
 'use client';
-import Link from 'next/link';
-import Logo from '@/components/logo';
-import { Github, Linkedin } from 'lucide-react';
 
+import Link from 'next/link';
+import { Github, Linkedin, ArrowUpRight, Youtube, Instagram, Twitter } from 'lucide-react';
+
+// Composant Logo X personnalisé
 const XLogo = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     aria-label="X logo"
@@ -16,155 +17,124 @@ const XLogo = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export function Footer() {
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
-    e.preventDefault();
-    const element = document.querySelector(anchor);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <footer className="bg-black text-white py-12">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-          {/* Logo + Localisation */}
-          <div className="flex flex-col items-start">
-            <Logo />
-            <p className="mt-4 text-sm text-gray-400">
-              Bordeaux, France
-            </p>
-          </div>
+    <footer 
+      className="bg-black text-white relative overflow-hidden border-t border-white/5"
+      style={{ fontFamily: "'Roboto', sans-serif" }}
+    >
+      {/* Import de la police Roboto si elle n'est pas déjà chargée globalement */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+      `}</style>
 
-          {/* Liens rapides */}
-          <div className="md:mx-auto">
-            <h3 
-              className="text-sm font-semibold tracking-wider uppercase mb-4"
-              style={{
-                background: 'linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              LIENS RAPIDES
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#home"
-                  onClick={(e) => handleScroll(e, '#hero')}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Accueil
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#services"
-                  onClick={(e) => handleScroll(e, '#services')}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#achievements"
-                  onClick={(e) => handleScroll(e, '#achievements')}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Réalisations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#about"
-                  onClick={(e) => handleScroll(e, '#about')}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  À propos
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#documentation"
-                  onClick={(e) => handleScroll(e, '#documentation')}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#contact"
-                  onClick={(e) => handleScroll(e, '#contact')}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/nos-services"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Nos Services
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Réseaux sociaux */}
-          <div className="md:ml-auto">
-            <h3 
-              className="text-sm font-semibold tracking-wider uppercase mb-4"
-              style={{
-                background: 'linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              SUIVEZ-NOUS
-            </h3>
-            <div className="flex space-x-4">
-              <a 
-                href="https://x.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="X"
-              >
-                <XLogo className="w-6 h-6" fill="currentColor" />
-              </a>
-              <a 
-                href="https://github.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Github"
-              >
-                <Github className="w-6 h-6" />
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
-            </div>
-          </div>
+      <div className="sm:px-6 md:px-10 relative max-w-7xl mx-auto pt-24 pb-12 px-4">
+        
+        {/* Soft radial glow - Effet de lumière en fond */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[60%] h-[60%] rounded-[100%] bg-gradient-to-t from-[#FFB300]/10 to-transparent blur-[100px]"></div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 mt-12 border-t border-white/10">
-          <p className="text-sm text-center text-gray-400">
-            © {new Date().getFullYear()} Kames AI. Tous droits réservés.
-          </p>
+        {/* Eyebrow - Petit texte au-dessus du titre */}
+        <div className="flex items-center justify-center gap-4 text-neutral-400 text-sm mb-8">
+          <span className="h-px w-12 bg-white/10"></span>
+          <span className="italic">Contactez-nous à tout moment</span>
+          <span className="h-px w-12 bg-white/10"></span>
+        </div>
+
+        {/* Heading - Titre Principal avec Dégradé */}
+        <h2 
+          className="text-4xl sm:text-6xl text-center font-light tracking-tight mb-6"
+          style={{
+            background: 'linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}
+        >
+          Restons Connectés
+        </h2>
+
+        {/* Copy - Texte descriptif */}
+        <p className="text-sm sm:text-base text-neutral-400 max-w-xl mx-auto text-center leading-relaxed">
+          Vous avez des questions ou souhaitez collaborer ? N'hésitez pas à nous contacter — 
+          Nous sommes ouverts aux nouveaux projets comme aux échanges informels !
+        </p>
+
+        {/* CTA - Bouton de contact (Style Magic Button) */}
+        <div className="mt-10 flex justify-center relative z-10">
+          <Link href="#contact">
+            <div className="magic-btn-container">
+                <span className="magic-btn-content px-8 py-3 flex items-center gap-2 text-sm font-medium">
+                    <ArrowUpRight className="w-4 h-4" />
+                    Nous contacter
+                </span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Socials - Réseaux sociaux */}
+        <div className="mt-12 flex items-center justify-center gap-6 text-neutral-400 relative z-10">
+          <a 
+            href="https://x.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            aria-label="X (Twitter)" 
+            className="p-3 rounded-full bg-white/5 hover:bg-white/10 hover:text-white transition-colors ring-1 ring-white/5"
+          >
+            <XLogo className="w-5 h-5 fill-current" />
+          </a>
+          
+          <span className="h-6 w-px bg-white/10"></span>
+          
+          <a 
+            href="https://youtube.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            aria-label="YouTube" 
+            className="p-3 rounded-full bg-white/5 hover:bg-white/10 hover:text-white transition-colors ring-1 ring-white/5"
+          >
+            <Youtube className="w-5 h-5" />
+          </a>
+
+          <span className="h-6 w-px bg-white/10"></span>
+
+          <a 
+            href="https://instagram.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            aria-label="Instagram" 
+            className="p-3 rounded-full bg-white/5 hover:bg-white/10 hover:text-white transition-colors ring-1 ring-white/5"
+          >
+            <Instagram className="w-5 h-5" />
+          </a>
+
+          <span className="h-6 w-px bg-white/10"></span>
+
+          <a 
+            href="https://linkedin.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            aria-label="LinkedIn" 
+            className="p-3 rounded-full bg-white/5 hover:bg-white/10 hover:text-white transition-colors ring-1 ring-white/5"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+        </div>
+
+        {/* Email */}
+        <p className="mt-8 text-center relative z-10">
+          <a 
+            href="mailto:contact.kamesai@gmail.com"
+            className="text-sm text-neutral-400 underline underline-offset-4 hover:text-[#FFB300] transition-colors"
+          >
+            contact.kamesai@gmail.com
+          </a>
+        </p>
+
+        {/* Bottom bar - Copyright & Localisation */}
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+          <p>© {new Date().getFullYear()} Kames AI. Tous droits réservés.</p>
+          <p>Bordeaux, France</p>
         </div>
       </div>
     </footer>
