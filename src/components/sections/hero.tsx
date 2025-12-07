@@ -68,7 +68,7 @@ export function Hero() {
             Transformez votre entreprise
           </span>
           <span className="block text-gradient mt-2">
-            avec l'intelligence artificielle
+            grâce à l'intelligence artificielle
           </span>
         </h1>
 
@@ -76,7 +76,7 @@ export function Hero() {
         <div className="space-y-3 max-w-3xl mx-auto">
             
           {/* Ligne 1 */}
-          <p className="text-base md:text-lg font-semibold text-white font-headline">
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white font-headline">
             Kames met l'IA au service de votre croissance.
           </p>
 

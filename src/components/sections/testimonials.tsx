@@ -9,7 +9,7 @@ export function Testimonials() {
       {/* En-tête de section centré */}
       <div className="mb-20 text-center">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-6 max-w-4xl mx-auto">
-          Nos projets, vos succès
+          Vos succès, nos projets
         </h2>
         {/* Modification ici : text-white au lieu de text-white/70 */}
         <h3 className="text-lg text-white max-w-3xl mx-auto font-light leading-relaxed">
