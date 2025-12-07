@@ -2,6 +2,7 @@
 
 import { Zap, TrendingUp, PiggyBank, ShieldCheck, Check, ArrowRight, Hourglass, Clock, Target, Calendar } from 'lucide-react';
 import Link from 'next/link';
+import { StackMarquee } from './stack-marquee';
 
 export function Services() {
   return (
@@ -146,6 +147,11 @@ export function Services() {
              </div>
            </div>
         </div>
+      </div>
+
+      {/* 4.2.5 BANDEAU LOGOS (INSÉRÉ ICI) */}
+      <div className="mb-32">
+        <StackMarquee />
       </div>
 
       {/* 4.3 NOS OFFRES */}

@@ -51,7 +51,7 @@ export function Footer() {
             backgroundClip: 'text'
           }}
         >
-          Restons Connectés
+          Restons connectés
         </h2>
 
         {/* Copy - Texte descriptif */}
