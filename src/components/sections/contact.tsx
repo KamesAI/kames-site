@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, User, Youtube, Instagram } from 'lucide-react';
+import { Mail, User, Youtube, Instagram, ArrowRight } from 'lucide-react';
 
 export function ContactSection() {
   return (
@@ -29,7 +29,7 @@ export function ContactSection() {
         }
       `}</style>
 
-      <div className="container mx-auto px-6">
+      <div className="relative z-10 container mx-auto px-6">
         <h2 
           style={{
             background: 'linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%)',
@@ -105,8 +105,8 @@ export function ContactSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                     <label className="text-white text-sm font-medium">Type de services*</label>
-                    <select className="input-underlined w-full py-3 text-white bg-transparent appearance-none cursor-pointer">
-                        <option value="" disabled selected className="bg-[#111]">Sélectionnez un service</option>
+                    <select defaultValue="" className="input-underlined w-full py-3 text-white bg-transparent appearance-none cursor-pointer" required>
+                        <option value="" disabled className="bg-[#111]">Sélectionnez un service</option>
                         <option value="starter" className="bg-[#111]">Pack Starter</option>
                         <option value="pro" className="bg-[#111]">Pack Pro</option>
                         <option value="premium" className="bg-[#111]">Pack Premium</option>
@@ -115,8 +115,8 @@ export function ContactSection() {
                     </div>
                     <div className="space-y-2">
                     <label className="text-white text-sm font-medium">Votre budget *</label>
-                    <select className="input-underlined w-full py-3 text-white bg-transparent appearance-none cursor-pointer">
-                        <option value="" disabled selected className="bg-[#111]">Par tranche</option>
+                    <select defaultValue="" className="input-underlined w-full py-3 text-white bg-transparent appearance-none cursor-pointer" required>
+                        <option value="" disabled className="bg-[#111]">Par tranche</option>
                         <option value="<2k" className="bg-[#111]">Moins de 2 000 €</option>
                         <option value="2k-5k" className="bg-[#111]">2 000 € - 5 000 €</option>
                         <option value="5k-10k" className="bg-[#111]">5 000 € - 10 000 €</option>
@@ -137,12 +137,48 @@ export function ContactSection() {
 
                 {/* Footer Formulaire avec CTA Style "Start Building" (Pill + Glow + Border) */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4">
-                    <button
-                        type="submit"
-                        className="w-full md:w-auto px-8 py-2.5 rounded-full bg-[#1a2744] border border-white/30 text-white font-semibold text-sm shadow-[0_0_15px_rgba(26,39,68,0.6)] hover:shadow-[0_0_25px_rgba(26,39,68,0.9)] hover:bg-[#233254] hover:border-white/50 transition-all duration-300 transform hover:scale-105"
-                    >
-                        Soumettre
-                    </button>
+                    <div className="relative inline-flex w-full md:w-auto rounded-full p-[1px]">
+                        <div 
+                            className="absolute inset-0 rounded-full"
+                            style={{
+                                background: 'linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%)'
+                            }}
+                        />
+                        <button
+                            type="submit"
+                            className="relative inline-flex items-center justify-center gap-2 overflow-hidden w-full transition-all duration-300 text-base font-semibold tracking-tight bg-black rounded-full pt-3 pr-6 pb-3 pl-6 backdrop-blur-sm"
+                            style={{ zIndex: 2 }}
+                        >
+                            <span 
+                                className="relative z-[1] text-white"
+                            >
+                                Soumettre
+                            </span>
+                            <svg 
+                                className="relative z-[1] w-4 h-4 text-white" 
+                                width="20" 
+                                height="20" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                strokeWidth={1.5}
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"
+                                stroke="currentColor"
+                            >
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                            <span 
+                                aria-hidden="true" 
+                                className="pointer-events-none absolute inset-[1px] rounded-full"
+                                style={{
+                                    background: `
+                                        radial-gradient(120% 80% at 50% -20%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 55%, rgba(255,255,255,0) 60%)
+                                    `
+                                }}
+                            />
+                        </button>
+                    </div>
                     
                     <span className="text-gray-500 text-sm">
                     Une réponse vous sera donnée sous 24H.

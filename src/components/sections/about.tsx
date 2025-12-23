@@ -3,15 +3,15 @@
 
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import SplineBackground from '@/components/ui/SplineBackground';
 
 export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative flex items-center justify-center bg-cover bg-center section-padding py-32" // Ajout de py-32 pour assurer de l'espace vertical si section-padding n'est pas défini
-      style={{ backgroundImage: "url('/images/about-bg.jpg')" }}
+      className="relative flex items-center justify-center section-padding py-32"
     >
-      <div className="absolute inset-0 bg-black/70" />
+      <SplineBackground />
       <div className="relative z-10 text-center px-6 max-w-4xl">
         <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
           <span className="text-gradient">

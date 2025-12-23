@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import { ChromeScrollButton } from '@/components/ui/chrome-scroll-button';
 
 // Import dynamique corrigé pour gérer l'export nommé
 const HeroBackground = dynamic(() => import('./hero-background').then(mod => mod.HeroBackground), { 
@@ -105,15 +105,12 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="mt-16 animate-bounce">
-          <button 
-            aria-label="Découvrir nos services"
+        {/* Chrome Scroll Button */}
+        <div className="mt-16">
+          <ChromeScrollButton 
             onClick={goToServices}
-            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-[#FFB300]"
-          >
-            <ArrowDown className="w-6 h-6" />
-          </button>
+            ariaLabel="Découvrir nos services"
+          />
         </div>
 
       </div>

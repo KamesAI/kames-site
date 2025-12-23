@@ -20,8 +20,8 @@ const FAQS = [
     r: "Non, aucune compétence technique n'est requise. C'est précisément notre métier de rendre l'automatisation accessible. Nous créons les systèmes, les configurons et formons vos équipes à les utiliser. Vous n'avez qu'à nous expliquer ce qui vous fait perdre du temps, nous nous occupons du reste." 
   },
   { 
-    q: "Combien ça coûte vraiment ?", 
-    r: "Nos tarifs dépendent du pack choisi :\n\nStarter : Setup + abonnement mensuel (idéal pour débuter)\nPro : Setup + abonnement pour un système complet\nPremium : Sur devis selon votre projet\n\nNous pratiquons une tarification transparente, sans frais cachés. L'abonnement mensuel inclut l'hébergement, la maintenance et le support. Pas de mauvaise surprise en fin de mois, support continu et un appel visio mensuel au minimum compris dans chaque offre." 
+    q: "Quel budget prévoir pour gagner en efficacité et en sérénité ?", 
+    r: "Nous adaptons notre structure de coûts à la complexité de vos processus pour garantir un ROI rapide :\n\nStarter : Idéal pour démarrer (Install : 800-1500€ | Suivi : 247-497€/mois).\nPro : Pour structurer votre croissance (Install : 2000-4000€ | Suivi : 497-997€/mois).\nPremium : Une solution intégrale sur devis, basée sur un audit stratégique préalable." 
   },
   { 
     q: "Est-ce compatible avec mes outils actuels ?", 
@@ -36,18 +36,35 @@ const FAQS = [
     r: "Oui, nous fonctionnons avec un engagement de 6 à 12 mois selon le pack choisi. Voici pourquoi cet engagement est dans votre intérêt :\n\nUne automatisation réussie se construit dans le temps\nLes premiers jours, le système est opérationnel. Mais c'est dans les semaines suivantes qu'on l'affine vraiment : on ajuste selon vos retours terrain, on optimise les scénarios, on détecte les cas particuliers. Un engagement sur plusieurs mois nous permet de vous accompagner jusqu'à ce que le système soit vraiment parfait pour vous.\n\nUn suivi proactif inclus sur toute la période\nContrairement à un prestataire qui livre et disparaît, nous surveillons vos workflows en continu. Si quelque chose ralentit, si un processus peut être amélioré, si vos besoins évoluent, nous intervenons sans attendre que vous nous le demandiez. Cet accompagnement actif nécessite une relation de moyen terme.\n\nVotre rentabilité se mesure sur plusieurs mois\nL'investissement initial (setup) s'amortit généralement entre 3 et 6 mois selon les gains de temps réalisés. Un engagement sur 6-12 mois vous garantit d'atteindre et de dépasser largement votre retour sur investissement. Vous ne payez pas pour tester, vous investissez pour transformer durablement votre activité.\n\nÉvolution et formation continues\nVos processus métier évoluent, vos équipes découvrent de nouvelles idées d'automatisation, les outils que vous utilisez ajoutent des fonctionnalités. Sur 6-12 mois, nous intégrons ces évolutions progressivement. C'est cette amélioration continue qui fait la différence entre un simple outil et un véritable avantage concurrentiel." 
   },
   { 
-    q: "Comment savoir si ça va vraiment fonctionner pour mon activité ?", 
-    r: "Nous commençons toujours par un échange gratuit pour comprendre vos processus et identifier les gains potentiels. Nous vous donnons une vision claire de ce qui est automatisable, des délais et du retour sur investissement attendu. Si nous pensons qu'une automatisation n'est pas pertinente pour vous, nous vous le dirons franchement. Notre objectif est que vous gagniez réellement du temps et de l'argent." 
+    q: "Comment mesurer l'impact potentiel sur votre entreprise ?", 
+    r: "Notre approche s'appuie sur des indicateurs clés de performance (KPI) strictement mesurables, définis en amont selon le processus ou le système mis en place.\n\nPrenons un exemple réaliste : Si l'IA automatise une tâche administrative qui prend 10h par semaine à un collaborateur (coût chargé : 30€/h), vous économisez directement 1 200€ par mois, soit 14 400€ par an sur une seule tâche.\n\nCette analyse financière transforme une dépense apparente en un levier de rentabilité immédiat et factuel pour votre structure." 
   }
 ];
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 px-6 max-w-3xl mx-auto">
-      {/* 1. Titre "FAQ" avec w-fit et mx-auto pour forcer le dégradé sur la largeur du texte uniquement */}
-      <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-12 text-center w-fit mx-auto">FAQ</h2>
+    <section id="faq" className="relative py-24 px-6 max-w-3xl mx-auto">
+      {/* Background image en noir et blanc */}
+      <div className="absolute inset-0 w-screen left-1/2 -translate-x-1/2 -z-10">
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat grayscale"
+          style={{
+            backgroundImage: 'url(/images/night.sky.background.jpg)',
+            opacity: 0.3,
+          }}
+        />
+        {/* Overlay sombre pour améliorer la lisibilité */}
+        <div className="absolute inset-0 bg-black/50" />
+        {/* Gradient fondu en haut */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
+        {/* Gradient fondu en bas */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
+      </div>
       
-      <div className="space-y-4">
+      {/* 1. Titre "FAQ" avec w-fit et mx-auto pour forcer le dégradé sur la largeur du texte uniquement */}
+      <h2 className="relative z-10 text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-12 text-center w-fit mx-auto">FAQ</h2>
+      
+      <div className="relative z-10 space-y-4">
         {FAQS.map((faq, i) => (
           <details key={i} className="group bg-neutral-900/50 border border-neutral-800 rounded-xl overflow-hidden">
             <summary className="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white group-hover:bg-neutral-800/50 transition-colors">
@@ -65,7 +82,7 @@ export function FAQ() {
       </div>
 
       {/* 2. CTA style Magic Button */}
-      <div className="mt-12 flex justify-center">
+      <div className="relative z-10 mt-12 flex justify-center">
         <a href="#contact">
             <div className="magic-btn-container">
                 <span className="magic-btn-content px-6 py-2 flex items-center gap-2 text-sm font-medium">

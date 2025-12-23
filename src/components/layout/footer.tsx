@@ -43,7 +43,7 @@ export function Footer() {
 
         {/* Heading - Titre Principal avec Dégradé */}
         <h2 
-          className="text-4xl sm:text-6xl text-center font-light tracking-tight mb-6"
+          className="text-5xl md:text-6xl text-center font-bold tracking-tight mb-6"
           style={{
             background: 'linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%)',
             WebkitBackgroundClip: 'text',
@@ -131,10 +131,33 @@ export function Footer() {
           </a>
         </p>
 
-        {/* Bottom bar - Copyright & Localisation */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-          <p>© {new Date().getFullYear()} Kames AI. Tous droits réservés.</p>
-          <p>Bordeaux, France</p>
+        {/* Bottom bar - Copyright, Liens légaux & Localisation */}
+        <div className="mt-16 pt-8 border-t border-white/5 space-y-4">
+          
+          {/* Ligne 1 : Liens légaux */}
+          <div className="flex items-center justify-center gap-3 text-xs text-neutral-500">
+            <Link 
+              href="/mentions-legales"
+              className="hover:text-[#FFB300] transition-colors underline underline-offset-2"
+            >
+              Mentions légales
+            </Link>
+            <span className="text-white/20">•</span>
+            <Link 
+              href="/rgpd"
+              className="hover:text-[#FFB300] transition-colors underline underline-offset-2"
+            >
+              Politique de confidentialité
+            </Link>
+          </div>
+
+          {/* Ligne 2 : Copyright & Localisation */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs text-neutral-500">
+            <p>© {new Date().getFullYear()} Kames AI. Tous droits réservés.</p>
+            <span className="hidden sm:inline text-white/20">•</span>
+            <p>Bordeaux, France</p>
+          </div>
+
         </div>
       </div>
     </footer>

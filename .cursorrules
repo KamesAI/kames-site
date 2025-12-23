@@ -1,0 +1,27 @@
+description: Ensures the style guide stays in sync with implementation
+globs:
+alwaysApply: true
+---
+
+## Style Guide Governance
+
+website-guidelines/Style_Guide.md is the authoritative global design system.
+
+When implementing a section:
+- If a design is reusable or appears in more than one section,
+  it MUST be documented in website-guidelines/Style_Guide.md.
+- If a design decision is section-specific, keep it in the section file only. 
+
+If implementation diverges from website-guidelines/Style_Guide.md :
+1. If the new approach looks/works better, keep it.
+2. Update website-guidelines/Style_Guide.md to match what we actually implemented.
+3. Add a changelog entry noting what changed and why.
+4. Do not duplicate section-specific instructions in the style guide.
+
+Never silently diverge from the style guide.
+
+Additional context:
+- Project: Kames AI Website (Next.js 14, Tailwind CSS)
+- Theme: Dark mode with orange (#FFB300) to magenta (#F538A0) gradients
+- Deployment: Vercel
+
