@@ -144,3 +144,26 @@ details > summary::-webkit-details-marker {
 .animate-text-disappear {
   animation: text-disappear 0.5s ease-in forwards;
 }
+
+/* === TESTIMONIAL CARD WITH GRADIENT BORDER === */
+.testimonial-card-wrapper {
+  position: relative;
+  border-radius: 0.75rem;
+  padding: 1px;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.testimonial-card-wrapper:hover {
+  background: linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
+}
+
+/* === TESTIMONIAL BORDER WRAPPER (transparent par défaut, gradient au hover) === */
+.testimonial-border-wrapper {
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.group:hover .testimonial-border-wrapper {
+  background: linear-gradient(90deg, #FFB300 0%, #FF6D00 50%, #F538A0 100%);
+}

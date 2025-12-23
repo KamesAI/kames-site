@@ -33,16 +33,16 @@ export function Services() {
             { 
               icon: Hourglass, 
               title: "Gain de temps", 
-              desc: "Automatisez vos tâches répétitives et économisez des dizaine d'heures par mois" 
+              desc: "Automatisez vos tâches répétitives et économisez des dizaines d'heures par mois" 
             },
             { 
               icon: TrendingUp, 
               title: "Optimisation des ressources", 
-              desc: "Libérez vos équipes pour les missions à forte valeur ajoutée" 
+              desc: "Donnez à vos équipes les moyens de se concentrer sur l'essentiel" 
             },
             { 
               icon: PiggyBank, 
-              title: "Sobriété opérationnelle", 
+              title: "Efficacité opérationnelle", 
               desc: "Faire plus avec moins, grâce à l'orchestration automatisée" 
             },
             { 
@@ -69,15 +69,15 @@ export function Services() {
       </div>
 
       {/* 4.2 NOTRE DÉMARCHE (TIMELINE) */}
-      <div className="mb-32">
-        <div className="text-center mb-16 flex justify-center">
+      <div className="mb-32 relative overflow-hidden py-20">
+        <div className="text-center mb-16 flex justify-center relative z-10">
           {/* Titre "Notre démarche" en Magic Button */}
           <div className="magic-btn-container">
             <span className="magic-btn-content px-6 text-xl">Notre démarche</span>
           </div>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto z-10">
            {/* Ligne Verticale Centrale (Desktop uniquement) */}
            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#FFB300]/30 to-transparent -translate-x-1/2 hidden md:block" />
 
@@ -89,7 +89,7 @@ export function Services() {
                  <div className="md:w-[45%] text-center md:text-right pr-0 md:pr-12 mb-6 md:mb-0">
                      <h3 className="text-2xl font-bold text-[#FFB300] mb-3">Audit & Analyse</h3>
                      <p className="text-neutral-400 font-light text-lg">
-                       Nous plongeons dans vos données et processus pour identifier les opportunités d'automatisation à fort impact.
+                       Nous décelons ensemble les meilleures opportunités d'automatisation pour votre société.
                      </p>
                  </div>
                  
@@ -110,7 +110,7 @@ export function Services() {
                  <div className="md:w-[45%] text-center md:text-left pl-0 md:pl-12 mb-6 md:mb-0">
                      <h3 className="text-2xl font-bold text-[#FF6D00] mb-3">Conception</h3>
                      <p className="text-neutral-400 font-light text-lg">
-                       Développement sur mesure de vos agents IA et workflows avec les meilleurs outils (n8n, OpenAI, Claude).
+                       Nous concevons sur mesure vos agents IA et workflows avec les meilleurs outils du marché (n8n, Cursor, Claude).
                      </p>
                  </div>
 
@@ -131,7 +131,7 @@ export function Services() {
                  <div className="md:w-[45%] text-center md:text-right pr-0 md:pr-12 mb-6 md:mb-0">
                      <h3 className="text-2xl font-bold text-[#F538A0] mb-3">Déploiement</h3>
                      <p className="text-neutral-400 font-light text-lg">
-                       Mise en production sécurisée, formation de vos équipes et maintenance continue pour une adoption fluide.
+                       Nous assurons une mise en production sécurisée, formons vos équipes et garantissons une maintenance continue pour une adoption fluide.
                      </p>
                  </div>
                  

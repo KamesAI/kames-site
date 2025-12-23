@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export function HeroBackground() {
+export function DemarcheBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export function HeroBackground() {
 
     // Créer et charger le script
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.30/dist/unicornStudio.umd.js';
+    script.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js';
     script.onload = () => {
       if (!window.UnicornStudio.isInitialized && window.UnicornStudio.init) {
         window.UnicornStudio.init();
@@ -39,18 +39,18 @@ export function HeroBackground() {
   }, []);
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+    <div className="absolute w-full h-full left-0 top-0">
       <div 
         ref={containerRef}
-        data-us-project="N9XzvQXu7fA5SY2ewADJ" 
-        className="w-full h-full"
-        style={{ width: '100%', height: '100%' }}
+        data-us-project="p7Ff6pfTrb5Gs59C7nLC" 
+        className="absolute w-full h-full left-0 top-0"
+        style={{ 
+          width: '100%', 
+          height: '100%',
+          minHeight: '100%'
+        }}
       />
-      {/* Overlay optionnel pour assombrir légèrement et assurer la lisibilité du texte par-dessus */}
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-      
-      {/* Dégradé en bas pour une transition fluide vers la section suivante */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
     </div>
   );
 }
+
