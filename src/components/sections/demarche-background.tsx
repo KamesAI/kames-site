@@ -21,7 +21,7 @@ export function DemarcheBackground() {
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js';
     script.onload = () => {
-      if (!window.UnicornStudio.isInitialized && window.UnicornStudio.init) {
+      if (window.UnicornStudio && !window.UnicornStudio.isInitialized && window.UnicornStudio.init) {
         window.UnicornStudio.init();
         window.UnicornStudio.isInitialized = true;
       }
